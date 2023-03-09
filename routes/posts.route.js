@@ -38,7 +38,11 @@ router.get("/posts", async (req, res) => {
         
   });
 
-  return res.status(200).json({ data: post.sort() });
+    return res.status(200).json({ data: post.sort(function(a,b) {
+
+    return new Date(a.plantingDate) - new Date(b.plantingDate)
+
+  }) });
   
 });
 
